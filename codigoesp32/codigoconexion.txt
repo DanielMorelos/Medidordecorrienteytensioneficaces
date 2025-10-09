@@ -1,0 +1,52 @@
+import network
+import time
+import urequests
+
+
+#  CONFIGURACIÓN DE FIREBASE
+
+FIREBASE_URL = "https://medidoriv-default-rtdb.firebaseio.com/mediciones.json"  #  cambia con tu URL real
+
+
+#  CONFIGURACIÓN DE WIFI
+
+WIFI_SSID = "SSID"
+WIFI_PASS = "CONTRASEÑA"
+
+
+#  CONEXIÓN A WIFI
+
+def conectar_wifi():
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+    if not wlan.isconnected():
+        print("Conectando a WiFi...", end="")
+        wlan.connect(WIFI_SSID, WIFI_PASS)
+        while not wlan.isconnected():
+            print(".", end="")
+            time.sleep(0.5)
+    print("\n Conectado a WiFi:", wlan.ifconfig())
+
+# ENVÍO A FIREBASE
+
+def enviar_datos(rms_v, rms_i):
+    """
+    Envía un par de valores (voltaje, corriente) a Firebase
+    usando la estructura esperada por la app Flutter.
+    """
+    timestamp = str(int(time.time() * 1000))  # milisegundos actuales
+    url = FIREBASE_URL.replace(".json", f"/{timestamp}.json")
+    data = {"voltaje": rms_v,, "corriente": rms_i}
+    try:
+        respuesta = urequests.put(url, json=data)
+        print(f" Enviado: V={voltaje} V, I={corriente} A")
+        respuesta.close()
+    except Exception as e:
+        print(" Error al enviar:", e)
+
+
+#  EJEMPLO DE USO
+
+# Conecta una sola vez al iniciar
+conectar_wifi()
+enviar_datos(rms_v, rms_i)
