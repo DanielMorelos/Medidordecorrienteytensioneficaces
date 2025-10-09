@@ -86,9 +86,16 @@ class _HomePageState extends State<HomePage> {
     
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Medidor de Corriente y Voltaje Eficaces'),
-        titleTextStyle: const TextStyle(fontSize: 26,color: Colors.black,),
         centerTitle: true,
+        title: const Text(
+          'Medidor de corriente\ny voltaje eficaces',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 22,
+            color: Colors.black,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ),
       body: SingleChildScrollView( // scroll para toda la app
         padding: const EdgeInsets.all(8.0),
@@ -174,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                         sideTitles: SideTitles(
                           showTitles: true,
                           reservedSize: 30,
-                          interval: 20,
+                          interval: 25,
                           getTitlesWidget: (value, meta) =>
                               Text("${value.toInt()}s"),
                         ),
@@ -231,7 +238,7 @@ class _HomePageState extends State<HomePage> {
                         sideTitles: SideTitles(
                           showTitles: true,
                           reservedSize: 30,
-                          interval: 20,
+                          interval: 25,
                           getTitlesWidget: (value, meta) =>
                               Text("${value.toInt()}s"),
                         ),
