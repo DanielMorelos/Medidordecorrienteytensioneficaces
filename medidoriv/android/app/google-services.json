@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "63263521757",
+    "firebase_url": "https://medidoriv-default-rtdb.firebaseio.com",
+    "project_id": "medidoriv",
+    "storage_bucket": "medidoriv.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:63263521757:android:27afb585b5563eaeb45434",
+        "android_client_info": {
+          "package_name": "com.example.medidoriv"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz5q4GtMnj9Bc4G63uurGi9IZEg1uYP5Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
