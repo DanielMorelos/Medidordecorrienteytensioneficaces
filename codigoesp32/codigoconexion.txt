@@ -14,7 +14,7 @@ WIFI_SSID = "SSID"
 WIFI_PASS = "CONTRASEÑA"
 
 
-#  CONEXIÓN A WIFI
+#  CONEXIÓN WIFI
 
 def conectar_wifi():
     wlan = network.WLAN(network.STA_IF)
@@ -43,10 +43,35 @@ def enviar_datos(rms_v, rms_i):
         respuesta.close()
     except Exception as e:
         print(" Error al enviar:", e)
+def limpiar_datos_viejos():
+    """
+    Lee la lista de claves en /mediciones y borra las más antiguas
+    si el total supera MAX_DATOS.
+    """
+    try:
+        # Obtener todas las mediciones
+        resp = urequests.get(FIREBASE_URL)
+        if resp.status_code == 200 and resp.text != "null":
+            data = resp.json()
+            keys = sorted(data.keys(), key=lambda x: int(x))  # ordenar por timestamp
+ el
+            if len(keys) > MAX_DATOS:
+                excedente = len(keys) - MAX_DATOS
+                print(f" Hay {len(keys)} datos. Eliminando {excedente} más antiguos...")
+                for k in keys[:excedente]:
+                    borrar_url = FIREBASE_URL.replace(".json", f"/{k}.json")
+                    urequests.delete(borrar_url)
+                    print(f"   ❌ Borrado: {k}")
+        resp.close()
 
+    except Exception as e:
+        print(" Error limpiando datos:", e), 
 
 #  EJEMPLO DE USO
 
 # Conecta una sola vez al iniciar
 conectar_wifi()
+while True:
 enviar_datos(rms_v, rms_i)
+    enviar_datos(rms_v, rms_i)  #  aquí se hace el envío
+    time.sleep(1)  #  espera 1 segundo antes del siguiente envío
