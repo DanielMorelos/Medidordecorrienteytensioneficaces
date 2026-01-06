@@ -23,7 +23,7 @@ Future<void> enviarDatos(double voltaje, double corriente) async {
     await database.child("$timestamp").set({
       "voltaje": voltaje,
       "corriente": corriente,
-      "apiKey": "MEDIDOR_2025",
+      "Key": "MEDIDOR_2025",
     });
     debugPrint(" Datos enviados: V=$voltaje, I=$corriente");
   } catch (e) {
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
   ///  Función: cargar últimos 100 datos desde Firebase
   Future<void> _loadSamplesFromFirebase() async {
     final snapshot = await database
-    .orderByChild("apiKey")
+    .orderByChild("Key")
     .equalTo("MEDIDOR_2025")
     .limitToLast(100)
     .get();
