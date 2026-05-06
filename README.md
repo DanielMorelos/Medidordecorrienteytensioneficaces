@@ -16,12 +16,18 @@ Microcontrolador,ESP32-WROOM-32E (Dual-Core @ 240 MHz)   +1
 Arquitectura del Sistema
 El dispositivo se fundamenta en dos pilares tecnológicos:
 1. Bloque Analógico (Acondicionamiento):
+
 -Sensado de Corriente: Utiliza un resistor shunt de alta precisión (4 mΩ) junto a un amplificador de instrumentación INA225 con arquitectura zero-drift para minimizar errores de offset.
+
 -Sensado de Tensión: Implementa una etapa reductora con el op-amp MCP6002 (rail-to-rail), acoplando la señal mediante un DC Offset de 1.5 V para compatibilidad con el ADC unipolar.
-2. Bloque Digital (Procesamiento):
+3. Bloque Digital (Procesamiento):
+
 -Firmware: Desarrollado en MicroPython, ejecuta un muestreo sincronizado mediante detección de cruce por cero para garantizar la precisión del cálculo RMS.
+
 -Lógica de Control: Gestiona las ganancias del INA225 (25, 50, 100 o 200 V/V) en tiempo real según la carga detectada.
+
 Estructura del Repositorio/firmware:
+
 -Código fuente en MicroPython para el microcontrolador ESP32.
 -/mobile_app: Proyecto Flutter para la aplicación móvil y web de monitoreo.
 -/hardware: Esquemáticos y documentación del diseño de la PCB.
