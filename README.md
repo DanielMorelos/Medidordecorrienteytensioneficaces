@@ -20,7 +20,8 @@ El dispositivo se fundamenta en dos pilares tecnológicos:
 -Sensado de Corriente: Utiliza un resistor shunt de alta precisión (4 mΩ) junto a un amplificador de instrumentación INA225 con arquitectura zero-drift para minimizar errores de offset.
 
 -Sensado de Tensión: Implementa una etapa reductora con el op-amp MCP6002 (rail-to-rail), acoplando la señal mediante un DC Offset de 1.5 V para compatibilidad con el ADC unipolar.
-3. Bloque Digital (Procesamiento):
+
+2. Bloque Digital (Procesamiento):
 
 -Firmware: Desarrollado en MicroPython, ejecuta un muestreo sincronizado mediante detección de cruce por cero para garantizar la precisión del cálculo RMS.
 
