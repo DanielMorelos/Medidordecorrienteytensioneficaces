@@ -34,9 +34,10 @@ migrate_working_dir/
 /coverage/
 
 # Firebase keys or private stuff
-*.json
+google-services.json
 *.pem
 *.keystore
+lib/firebase_options.dart
 
 # Symbolication related
 app.*.symbols
