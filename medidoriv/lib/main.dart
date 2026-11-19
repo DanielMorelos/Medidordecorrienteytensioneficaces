@@ -5,8 +5,8 @@ import 'package:medidoriv/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 ///  Aplicación Flutter para medir y graficar corriente y voltaje eficaces
-/// 2200515 - Daniel Jeshua Morelos Villamizar
-/// 2204654 - Kevin Rafael Roa Garcia
+/// Daniel Jeshua Morelos Villamizar
+/// Kevin Rafael Roa Garcia
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -283,8 +283,8 @@ class _HomePageState extends State<HomePage> {
               children: [
                 const Text(
                   'Desarrollado por:\n'
-                  'Daniel Jeshua Morelos Villamizar - 2200515\n'
-                  'Kevin Rafael Roa Garcia - 2204654\n'
+                  'Daniel Jeshua Morelos Villamizar\n'
+                  'Kevin Rafael Roa Garcia\n'
                   'Profesor: Jaime Guillermo Barrero Pérez\n'
                   'Universidad Industrial de Santander - 2025',
                   textAlign: TextAlign.center,
